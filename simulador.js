@@ -42,7 +42,6 @@ function refrescar() {
     p = new Intl.NumberFormat("es-AR").format(p);
     liVehiculo = document.createElement("li");
     liVehiculo.innerHTML = `Fecha: ${f}</br> Tamaño del Vehículo: ${t}</br> Cantidad de Ventanas: ${v}</br> Tipo de Lámina: ${l} </br> Precio: ARS ${p} + IVA`;
-    ulLista.innerHTML = "";
     ulLista.appendChild(liVehiculo);
   }
   pCotizacion.innerHTML = `Fecha: ${f}</br> Tamaño del Vehículo: ${t}</br> Cantidad de Ventanas: ${v}</br> Tipo de Lámina: ${l}  </br> <strong>Precio: ARS ${p} + IVA</strong>`;
@@ -108,6 +107,7 @@ formCotizador.addEventListener("submit", (e) => {
 
   vclo.push(vehiculo);
   localStorage.setItem("vclo", JSON.stringify(vclo));
+  ulLista.innerHTML = "";
 
   refrescar();
 
