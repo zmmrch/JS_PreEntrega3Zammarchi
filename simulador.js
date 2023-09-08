@@ -33,6 +33,7 @@ function obtenerFecha() {
 
 //Función para mostrar resultados y storage
 function refrescar() {
+  ulLista.innerHTML = "";
   for (const iterator of vclo) {
     t = iterator.tamanio;
     v = iterator.ventanas;
