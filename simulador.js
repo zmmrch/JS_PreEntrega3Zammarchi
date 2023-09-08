@@ -33,12 +33,7 @@ function obtenerFecha() {
 
 //Función para mostrar resultados y storage
 function refrescar() {
-  let x = document.querySelectorAll("li");
-  let cantidad = x.length;
-  if (cantidad > 0) {
-    x = x[0];
-    x.remove();
-  }
+  ulLista.textContent = "";
   for (const iterator of vclo) {
     t = iterator.tamanio;
     v = iterator.ventanas;
