@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Cotizador de Polarizados</h3>
+    <form id="formCotizador">
+        <label for="inputVehiculo">Tamaño del Vehículo</label>
+        <select id="inputVehiculo" name="vehiculo">
+            <option value="Pequeño">Pequeño</option>
+            <option value="Mediano">Mediano</option>
+            <option value="Grande">Grande</option>
+            <option value="Grande+">Grande+</option>
+            <option value="Camiones">Camiones</option>
+        </select>
+        <label for="inputVentanas">Cantidad de Ventanas</label><input id="inputVentanas" type="number" min="1" max="10">
+        <select id="inputLamina" name="lamina">
+            <option value="Polarizado">Polarizado</option>
+            <option value="Anti-bandálico">Anti-bandálico</option>
+        </select>
+        <input type="submit" value="Cotizar">
+    </form>
+    <h3>El Resultado de su Cotización es: </h3>
+    <p id="pCotizacion"></p>
+    <h3>Cotizaciones Almacenadas: </h3>
+    <ul id="ulLista"></ul>
+    <script src="./simulador.js"></script>
+</body>
+
+</html>
