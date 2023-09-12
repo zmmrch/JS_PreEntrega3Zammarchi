@@ -85,7 +85,6 @@ class Vehiculo {
 }
 
 const jsonAlmacenados = localStorage.getItem("vclo");
-console.log(jsonAlmacenados);
 if (jsonAlmacenados) {
   vclo = JSON.parse(jsonAlmacenados);
 }
