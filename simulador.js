@@ -46,6 +46,10 @@ function refrescar() {
     ulLista.appendChild(liVehiculo);
   }
   pCotizacion.innerHTML = `Fecha: ${f}</br> Tamaño del Vehículo: ${t}</br> Cantidad de Ventanas: ${v}</br> Tipo de Lámina: ${l}  </br> <strong>Precio: ARS ${p} + IVA</strong>`;
+  //Resetear el formulario
+  inputVehiculo.value = "";
+  inputVentanas.value = "";
+  inputLamina.value = "";
 }
 
 //Defino una clase para representar un vehículo
@@ -118,8 +122,3 @@ formCotizador.addEventListener("submit", (e) => {
       "Para este tamaño, por favor comunicarse a ventas@hyperion.com.ar";
   }
 });
-
-//Resetear el formulario
-inputVehiculo.value = "";
-inputVentanas.value = "";
-inputLamina.value = "";
