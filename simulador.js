@@ -52,6 +52,27 @@ function refrescar() {
   inputLamina.value = "";
 }
 
+function jsonAlmacenado() {
+  const jsonAlmacenados = localStorage.getItem("vclo");
+  if (jsonAlmacenados) {
+    vclo = JSON.parse(jsonAlmacenados);
+    return vclo;
+  }
+}
+
+function jsonGuardar(vehiculo) {
+  vclo.push(vehiculo);
+  localStorage.setItem("vclo", JSON.stringify(vclo));
+  ulLista.innerHTML = "";
+}
+
+function mensaje(tama) {
+  if (tama == "Grande+" || tama == "Camiones") {
+    return (pCotizacion.textContent =
+      "Para este tamaño, por favor comunicarse a ventas@hyperion.com.ar");
+  }
+}
+
 //Defino una clase para representar un vehículo
 class Vehiculo {
   constructor(tamanio, ventanas, lamina, fecha, precio) {
@@ -84,10 +105,7 @@ class Vehiculo {
   }
 }
 
-const jsonAlmacenados = localStorage.getItem("vclo");
-if (jsonAlmacenados) {
-  vclo = JSON.parse(jsonAlmacenados);
-}
+jsonAlmacenado();
 
 //Pido al usuario que ingrese los datos
 const formCotizador = document.querySelector("#formCotizador");
@@ -109,15 +127,10 @@ formCotizador.addEventListener("submit", (e) => {
 
   vehiculo.precio = vehiculo.calcularPrecio();
 
-  vclo.push(vehiculo);
-  localStorage.setItem("vclo", JSON.stringify(vclo));
-  ulLista.innerHTML = "";
+  jsonGuardar(vehiculo);
 
   refrescar();
 
   //Cambio el mensaje si el tamaño es Grande+ o Camiones
-  if (vehiculo.tamanio == "Grande+" || vehiculo.tamanio == "Camiones") {
-    pCotizacion.textContent =
-      "Para este tamaño, por favor comunicarse a ventas@hyperion.com.ar";
-  }
+  mensaje(vehiculo.tamanio);
 });
